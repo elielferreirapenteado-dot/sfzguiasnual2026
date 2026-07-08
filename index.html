@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bramarfi Piscinas - Indústria especializada em piscinas de fibra de vidro. Qualidade, durabilidade e design para seu lazer. Solicite seu orçamento!">
+    <title>Bramarfi Piscinas - Fábrica de Piscinas em Várzea Grande - MT</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #006994;
+            --primary-dark: #004c6d;
+            --secondary: #00b4d8;
+            --accent: #ffb703;
+            --light: #f0f8ff;
+            --dark: #023047;
+            --white: #ffffff;
+            --gray: #6c757d;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: rgba(0, 105, 148, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+            padding: 10px 0;
+            transition: 0.3s;
+        }
+        .navbar-brand img { height: 45px; transition: 0.3s; }
+        .navbar-nav .nav-link {
+            color: var(--white) !important;
+            font-weight: 600;
+            margin: 0 5px;
+            position: relative;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: 0.3s;
+        }
+        .navbar-nav .nav-link:hover::after { width: 70%; }
+        .btn-whatsapp-nav {
+            background: #25d366;
+            color: white !important;
+            border-radius: 25px;
+            padding: 8px 20px !important;
+            font-weight: 700;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(0,105,148,0.8) 0%, rgba(0,180,216,0.6) 100%), url('img/hero-bg.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+        }
+        .hero .lead {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 2px 5px rgba(0,0,0,0.3);
+        }
+        .hero .btn-primary-custom {
+            background: var(--accent);
+            border: none;
+            color: var(--dark);
+            font-weight: 700;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(255,183,3,0.4);
+        }
+        .hero .btn-primary-custom:hover {
+            background: #e5a000;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,183,3,0.6);
+        }
+        .hero .btn-outline-light {
+            border: 2px solid white;
+            border-radius: 50px;
+            padding: 13px 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .hero .btn-outline-light:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Products */
+        .product-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            background: white;
+            height: 100%;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .product-card img {
+            height: 250px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .product-card:hover img { transform: scale(1.05); }
+        .product-card .card-body {
+            padding: 25px;
+            text-align: center;
+        }
+        .product-card .icon-box {
+            width: 70px;
+            height: 70px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -50px auto 15px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .product-card .icon-box i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        /* Benefits */
+        .benefit-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            border: 1px solid rgba(0,180,216,0.2);
+            height: 100%;
+        }
+        .benefit-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,105,148,0.15);
+            border-color: var(--secondary);
+        }
+        .benefit-box i {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        .benefit-box h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* About Section */
+        .about-section {
+            background: linear-gradient(135deg, var(--light) 0%, #e0f0ff 100%);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 30px 0;
+        }
+        .about-section img {
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            width: 100%;
+        }
+        
+        /* Contact */
+        .contact-info-box {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            transition: 0.3s;
+            border-left: 4px solid var(--secondary);
+        }
+        .contact-info-box:hover {
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transform: translateX(5px);
+        }
+        .contact-info-box i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-right: 15px;
+            width: 40px;
+            text-align: center;
+        }
+        
+        /* CTA Flutuante */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 25px rgba(37,211,102,0.4);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            color: white;
+            box-shadow: 0 8px 30px rgba(37,211,102,0.6);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #ccc;
+            padding: 50px 0 20px;
+        }
+        footer h5 {
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        footer a:hover { color: var(--accent); }
+        footer .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            color: white;
+            transition: 0.3s;
+        }
+        footer .social-icons a:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero .lead { font-size: 1.1rem; }
+            .section-title h2 { font-size: 1.8rem; }
+            .about-section { padding: 25px; }
+        }
+    </style>
+</head>
+<body id="topo">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#topo">
+            <img src="img/logo.png" alt="Bramarfi Piscinas" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+            <span style="display:none; color:white; font-weight:800; font-size:1.5rem;">BRAMARFI</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color:white;">
+            <span class="navbar-toggler-icon" style="filter:invert(1);"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="#topo">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#diferenciais">Diferenciais</a></li>
+                <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                <li class="nav-item ms-2">
+                    <a class="nav-link btn-whatsapp-nav" href="https://wa.me/5565992662707?text=Olá!%20Quero%20solicitar%20um%20orçamento%20de%20piscina." target="_blank">
+                        <i class="fab fa-whatsapp"></i> Orçamento
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="inicio">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <h1>Transforme Seu Sonho em Realidade com a Bramarfi Piscinas</h1>
+                <p class="lead">Fabricação própria, qualidade superior e design exclusivo para o seu lazer.</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="https://wa.me/5565992662707?text=Olá!%20Quero%20solicitar%20um%20orçamento%20de%20piscina." target="_blank" class="btn btn-primary-custom btn-lg">
+                        <i class="fab fa-whatsapp me-2"></i>Solicitar Orçamento
+                    </a>
+                    <a href="#produtos" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-chevron-down me-2"></i>Nossos Produtos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="custom-shape-divider-bottom-1700000000" style="position:absolute; bottom:0; left:0; width:100%; overflow:hidden; line-height:0;">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" style="position:relative; display:block; width:calc(100% + 1.3px); height:80px;">
+            <path d="M0,50 C240,100 480,0 720,50 C960,100 1200,0 1440,50 L1440,100 L0,100 Z" fill="#ffffff"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Produtos -->
+<section id="produtos" class="py-5">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nossas Piscinas</h2>
+            <p>Qualidade e sofisticação em cada detalhe, fabricadas com tecnologia de ponta e materiais premium.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="product-card card">
+                    <img src="img/piscina-1.jpg" class="card-img-top" alt="Piscina Residencial" onerror="this.src='https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=600&h=400&fit=crop'">
+                    <div class="card-body">
+                        <div class="icon-box"><i class="fas fa-home"></i></div>
+                        <h4>Piscinas Residenciais</h4>
+                        <p>Modelos sob medida para sua casa, com design moderno e acabamento premium.</p>
+                        <a href="https://wa.me/5565992662707?text=Quero%20saber%20mais%20sobre%20piscinas%20residenciais" target="_blank" class="btn btn-outline-primary rounded-pill mt-2">
+                            <i class="fab fa-whatsapp me-1"></i> Consultar
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card card">
+                    <img src="img/piscina-2.jpg" class="card-img-top" alt="Piscina Comercial" onerror="this.src='https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=600&h=400&fit=crop'">
+                    <div class="card-body">
+                        <div class="icon-box"><i class="fas fa-building"></i></div>
+                        <h4>Piscinas Comerciais</h4>
+                        <p>Soluções para clubes, hotéis e condomínios com alta resistência e durabilidade.</p>
+                        <a href="https://wa.me/5565992662707?text=Quero%20saber%20mais%20sobre%20piscinas%20comerciais" target="_blank" class="btn btn-outline-primary rounded-pill mt-2">
+                            <i class="fab fa-whatsapp me-1"></i> Consultar
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card card">
+                    <img src="img/piscina-3.jpg" class="card-img-top" alt="Piscina Personalizada" onerror="this.src='https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop'">
+                    <div class="card-body">
+                        <div class="icon-box"><i class="fas fa-star"></i></div>
+                        <h4>Projetos Personalizados</h4>
+                        <p>Criamos a piscina dos seus sonhos com formatos e tamanhos exclusivos para seu espaço.</p>
+                        <a href="https://wa.me/5565992662707?text=Quero%20saber%20mais%20sobre%20projetos%20personalizados" target="_blank" class="btn btn-outline-primary rounded-pill mt-2">
+                            <i class="fab fa-whatsapp me-1"></i> Consultar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Diferenciais -->
+<section id="diferenciais" class="py-5" style="background: var(--light);">
+    <div class="container">
+        <div class="section-title">
+            <h2>Por que Escolher a Bramarfi?</h2>
+            <p>Compromisso com a excelência em cada etapa da fabricação.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="benefit-box">
+                    <i class="fas fa-medal"></i>
+                    <h4>Qualidade Premium</h4>
+                    <p>Materiais de primeira linha e processo de fabricação rigorosamente controlado.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="benefit-box">
+                    <i class="fas fa-clock"></i>
+                    <h4>Rapidez na Entrega</h4>
+                    <p>Produção ágil e instalação eficiente para você aproveitar sua piscina o quanto antes.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="benefit-box">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Garantia Estendida</h4>
+                    <p>Todos os nossos produtos contam com garantia de fábrica e suporte técnico.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="benefit-box">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Sustentabilidade</h4>
+                    <p>Processos que respeitam o meio ambiente com reaproveitamento e economia de água.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sobre Nós (resumo) -->
+<section id="sobre" class="py-5">
+    <div class="container">
+        <div class="about-section">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="img/sobre.jpg" alt="Fábrica Bramarfi" onerror="this.src='https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=400&fit=crop'" style="max-height:400px; object-fit:cover;">
+                </div>
+                <div class="col-lg-6">
+                    <h2 style="color:var(--primary);">Sobre a Bramarfi Piscinas</h2>
+                    <p class="lead">Desde 2020 fabricando sonhos em Várzea Grande - MT.</p>
+                    <p>A <strong>Bramarfi Indústria de Piscinas LTDA</strong> nasceu com o propósito de transformar momentos de lazer em experiências inesquecíveis. Com instalações modernas e equipe qualificada, somos referência em fabricação de artigos de vidro e piscinas de fibra na região.</p>
+                    <p><strong>CNPJ:</strong> 36.357.718/0001-87 | <strong>Fundação:</strong> 13/02/2020</p>
+                    <a href="sobre.html" class="btn btn-outline-primary rounded-pill mt-2">
+                        <i class="fas fa-info-circle me-2"></i>Saiba Mais Sobre Nós
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contato -->
+<section id="contato" class="py-5" style="background: var(--light);">
+    <div class="container">
+        <div class="section-title">
+            <h2>Fale Conosco</h2>
+            <p>Estamos prontos para atender você e realizar o projeto da sua piscina.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-5">
+                <div class="contact-info-box">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h5>Endereço</h5>
+                        <p class="mb-0">Rua Roque Branco de Miranda, SN, Qd 109 Lt 16<br>Bairro São Simão - Várzea Grande/MT<br>CEP: 78145-540</p>
+                    </div>
+                </div>
+                <div class="contact-info-box">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h5>WhatsApp</h5>
+                        <p class="mb-0"><a href="https://wa.me/5565992662707" target="_blank" style="color:var(--dark);">(65) 99266-2707</a></p>
+                    </div>
+                </div>
+                <div class="contact-info-box">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h5>E-mail</h5>
+                        <p class="mb-0"><a href="mailto:diogofernando1984@hotmail.com" style="color:var(--dark);">diogofernando1984@hotmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-info-box">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h5>Horário de Atendimento</h5>
+                        <p class="mb-0">Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="card shadow-sm rounded-4 p-4 h-100">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3844.4!2d-56.1!3d-15.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTXCsDM2JzAwLjAiUyA1NsKwMDYnMDAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1690000000000" 
+                        width="100%" height="350" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Bramarfi Piscinas"></iframe>
+                    <p class="text-muted small mt-2"><i class="fas fa-info-circle"></i> Visite nossa fábrica e conheça nossos modelos de perto!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <h5>Bramarfi Piscinas</h5>
+                <p>Indústria especializada em fabricação de piscinas. Transformando espaços com qualidade e inovação desde 2020.</p>
+                <div class="social-icons">
+                    <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/bramarfipiscinas" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5565992662707" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 mb-4">
+                <h5>Links Rápidos</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#topo">Início</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#diferenciais">Diferenciais</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 mb-4">
+                <h5>Institucional</h5>
+                <ul class="list-unstyled">
+                    <li><a href="sobre.html">Sobre a Empresa</a></li>
+                    <li><a href="politica-de-privacidade.html">Política de Privacidade</a></li>
+                    <li><a href="termos-de-uso.html">Termos de Uso</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 mb-4">
+                <h5>Contato</h5>
+                <p><i class="fas fa-phone me-2"></i>(65) 99266-2707</p>
+                <p><i class="fas fa-envelope me-2"></i>diogofernando1984@hotmail.com</p>
+                <p><i class="fas fa-map-marker-alt me-2"></i>Várzea Grande - MT</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="mb-0">&copy; 2020-2026 Bramarfi Indústria de Piscinas LTDA - CNPJ: 36.357.718/0001-87. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Flutuante -->
+<a href="https://wa.me/5565992662707?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="floating-whatsapp" title="Fale Conosco pelo WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Smooth Scroll -->
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offset = 80;
+                const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: position, behavior: 'smooth' });
+                // Fechar menu mobile ao clicar
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
